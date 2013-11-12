@@ -50,6 +50,7 @@ clean:
 	rm -rf $(BUILD_DIRS)
 
 test:
+	trial --random 0 kazoo.tests.test_txclient
 	ZOOKEEPER_PATH=$(ZOOKEEPER_PATH) NOSE_LOGFORMAT='%(thread)d:%(filename)s: %(levelname)s: %(message)s' \
 	$(BIN)/nosetests -d -v --with-coverage kazoo.tests
 
