@@ -280,7 +280,7 @@ class SetPartitioner(object):
                 return self._abort_lock_acquisition()
 
             lock = self._client.Lock(self._lock_path + '/' +
-                                     str(member))
+                                     str(member), identifier=self._identifier)
             try:
                 lock.acquire()
             except KazooException:  # pragma: nocover
